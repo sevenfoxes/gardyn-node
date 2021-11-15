@@ -2,7 +2,7 @@ export interface Garden {
   name: string;
   dimensions: {
     width: number;
-    lengt: number;
+    length: number;
   };
   substrate: string;
   type: string;
