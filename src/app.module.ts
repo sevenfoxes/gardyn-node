@@ -5,9 +5,10 @@ import { AppService } from './app.service';
 import { GardensController } from './gardens/gardens.controller';
 import { GardensService } from './gardens/gardens.service';
 import { ConfigService } from './config/config.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(ConfigService.getTypeOrmConfig())],
+  imports: [ConfigModule.forRoot(), TypeOrmModule.forRoot()],
   controllers: [AppController, GardensController],
   providers: [AppService, GardensService, ConfigService],
 })
