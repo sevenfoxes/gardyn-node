@@ -8,7 +8,12 @@ import { ConfigService } from './config/config.service';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ConfigModule.forRoot(), TypeOrmModule.forRoot()],
+  imports: [
+    TypeOrmModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+  ],
   controllers: [AppController, GardensController],
   providers: [AppService, GardensService, ConfigService],
 })
