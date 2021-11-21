@@ -3,7 +3,6 @@ import { GardensController } from './gardens.controller';
 import { GardensService } from './gardens.service';
 
 describe('GardensController', () => {
-  let app: TestingModule;
   let controller: GardensController;
 
   beforeEach(async () => {
