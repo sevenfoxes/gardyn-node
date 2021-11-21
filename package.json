@@ -15,6 +15,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nodemon --config nodemon.json",
+    "prestart:dev:db": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register src/scripts/write-type-orm-config.ts",
     "start:dev:db": "./src/scripts/start-db.sh",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

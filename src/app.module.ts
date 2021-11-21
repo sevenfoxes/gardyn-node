@@ -4,17 +4,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GardensController } from './gardens/gardens.controller';
 import { GardensService } from './gardens/gardens.service';
-import { ConfigService } from './config/config.service';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(),
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-  ],
+  imports: [TypeOrmModule.forRoot(), ConfigModule.forRoot()],
   controllers: [AppController, GardensController],
-  providers: [AppService, GardensService, ConfigService],
+  providers: [AppService, GardensService],
 })
 export class AppModule {}
