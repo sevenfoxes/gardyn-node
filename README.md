@@ -28,6 +28,8 @@
 
 ## Installation
 
+You will first need to add a `.env` file according to the `.env.example`
+
 ```bash
 $ npm install
 ```

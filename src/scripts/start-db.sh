@@ -2,8 +2,13 @@
 set -e
 export $(egrep -v '^#' .env | xargs)
 
-
-printenv | grep POSTGRES;
+if [ -z ${POSTGRES_SERVER+x} ];
+then echo '----- !postgres configuration missing! -----';
+else
+  echo '------ postgres configuration -----';
+  printenv | grep -E -- 'POSTGRES';
+  echo '------ end postgres configuration -----';
+fi
 
 echo "echo stop & remove old docker [$POSTGRES_SERVER] and starting new fresh instance of [$POSTGRES_SERVER]"
 (docker kill $POSTGRES_SERVER || :) && \
