@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "lib": ["DOM"],
+    "esModuleInterop": true,
     "jsx": "react",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
+    "target": "es5",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./src",
@@ -19,6 +21,7 @@
   },
   "exclude": [
     "./**/*.js",
-    "./dist/**/*"
+    "./dist/**/*",
+    "node_modules"
   ]
 }
