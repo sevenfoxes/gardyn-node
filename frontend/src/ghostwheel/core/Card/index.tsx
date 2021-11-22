@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactChild, ReactChildren, ReactNode } from 'react';
 import { makeStyles, classnames } from 'ghostwheel';
 import { Wrapper } from '../Wrapper';
 
@@ -41,14 +41,23 @@ const CardInner = ({ actions, title, children, footer, styling }) => {
   );
 };
 
+interface CardProps {
+  children?: ReactNode;
+  title: string;
+  wrap?: boolean;
+  actions?: ReactNode;
+  footer?: ReactNode;
+  styling?: any;
+}
+
 export const Card = ({
   children,
   wrap = false,
-  footer = false,
-  styling = false,
+  footer,
+  styling,
   actions,
   title,
-}) => {
+}: CardProps) => {
   return wrap ? (
     <Wrapper>
       <CardInner

@@ -15,9 +15,6 @@
     "baseUrl": "./src",
     "incremental": true,
     "skipLibCheck": true,
-    "paths": {
-      "@test-utils": ["../test-utils/index.ts"]
-    }
   },
   "exclude": [
     "./**/*.js",
