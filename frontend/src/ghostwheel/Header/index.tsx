@@ -26,7 +26,7 @@ const useStyles = makeStyles(
 
 export const Header = ({ children, subHeader = false }) => {
   const [height, setHeight] = useRecoilState(headerHeightSelector);
-  const { ref, dimensions } = useDimensions({ height: 2 });
+  const { ref, dimensions } = useDimensions({ height });
   const c = useStyles();
 
   useEffect(() => {

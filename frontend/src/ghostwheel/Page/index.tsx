@@ -1,19 +1,19 @@
 import React, { ReactNode } from 'react';
-import { makeStyles, Header, Wrapper } from 'ghostwheel';
+import { classnames, makeStyles, Header, Wrapper, theme } from 'ghostwheel';
 import { headerHeightSelector } from '../Header/headerHeightSelector';
 import { useRecoilValue } from 'recoil';
 
-const useStyles = makeStyles(
-  ({ baseMargin }) => ({
+const useDynamicStyles = makeStyles(({ ...r }) => {
+  console.log(r);
+  return {
     root: {
       height: 'inherit',
-      paddingTop: ({ paddingTop }) =>
-        `calc(env(safe-area-inset-left) + ${baseMargin} + ${paddingTop}px)` ||
+      paddingTop: (props) =>
+        `calc(env(safe-area-inset-left) + ${theme.variables.baseMargin} + ${props.theme.padding}px)` ||
         50,
     },
-  }),
-  'Page',
-);
+  };
+}, 'PageDynamic');
 
 interface PageInterface {
   menu?: any;
@@ -23,22 +23,22 @@ interface PageInterface {
 }
 
 export const Page = ({ children, menu, logo, wrap = false }: PageInterface) => {
-  const paddingTop = useRecoilValue(headerHeightSelector);
-  const c = useStyles();
+  const padding = useRecoilValue(headerHeightSelector);
+
+  const props = { theme: { padding } };
+  const d = useDynamicStyles(props);
   // const setActiveRoute = useSetSelector();
   // useEffect(() => {
   //   setActiveRoute();
   // }, [setActiveRoute]);
 
   return (
-    <>
-      <div className={c.root}>
-        <main>{wrap ? <Wrapper>{children}</Wrapper> : children}</main>
-        <Header>
-          {logo}
-          {menu}
-        </Header>
-      </div>
-    </>
+    <div className={classnames({ [d.root]: !!padding })}>
+      <main>{wrap ? <Wrapper>{children}</Wrapper> : children}</main>
+      <Header>
+        {logo}
+        {menu}
+      </Header>
+    </div>
   );
 };

@@ -59,15 +59,21 @@ const GardenActions = () => {
 
 export const Gardens = () => {
   const c = useStyles();
-  const [gardenIds] = useRecoilValue(gardensSelector);
-
+  // const [gardenIds] = useRecoilValue(gardensSelector);
+  // console.log(gardenIds);
   return (
-    !!gardenIds.length && (
-      <Card styling={c} title="Gardens" actions={<GardenActions />} wrap>
-        {gardenIds.map((id) => (
-          <Garden id={id} key={id} />
-        ))}
-      </Card>
-    )
+    <Card title="Gardens" styling={c} wrap>
+      hi
+    </Card>
   );
+
+  // return (
+  //   !!gardenIds.length && (
+  //     <Card styling={c} title="Gardens" actions={<GardenActions />} wrap>
+  //       {gardenIds.map((id) => (
+  //         <Garden id={id} key={id} />
+  //       ))}
+  //     </Card>
+  //   )
+  // );
 };
