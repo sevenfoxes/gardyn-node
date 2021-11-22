@@ -7,8 +7,5 @@ export * from './Nav';
 export * from './Pagination';
 export * from './Portal';
 export * from './SvgFragment';
-export * from './Table';
-export * from './TableCell';
-export * from './TableHeader';
 export * from './TableRow';
 export * from './Wrapper';

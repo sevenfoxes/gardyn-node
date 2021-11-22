@@ -4,7 +4,10 @@
   "description": "this is the frontend",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "start": "webpack serve --config ./webpack.config.js --progress",
+    "build": "webpack --mode production"
   },
   "author": "scott nesham",
   "license": "ISC",

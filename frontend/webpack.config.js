@@ -43,19 +43,18 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: [path.resolve(__dirname, "src"), "node_modules", "test-utils"],
+    extensions: ['.tsx', '.ts', '.js'],
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
     alias: {
       "lodash-es": "lodash",
       "lodash.debounce": "lodash/debounce",
-      cy$: path.resolve(__dirname, "src/cy/"),
-      components$: path.resolve(__dirname, "src/components/"),
     },
   },
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
-      favicon: "src/images/favicon.ico",
+      favicon: "./src/images/favicon.ico",
     }),
   ],
 };
